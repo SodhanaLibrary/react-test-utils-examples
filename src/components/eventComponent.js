@@ -4,31 +4,58 @@ class EventComponent  extends React.Component {
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			clickClass:'',
+			dblClickClass:'',
+			mouseOverEventClass:'',
+			inputVal:''
+		}
+		this.clickEventFunc = this.clickEventFunc.bind(this);
+		this.dblClickEventFunc = this.dblClickEventFunc.bind(this);
+		this.onChange = this.onChange.bind(this);
+		this.mouseOverEventFunc = this.mouseOverEventFunc.bind(this);
+	}
+
+	clickEventFunc() {
+		this.setState({
+			clickClass:'click-class'
+		});
+	}
+
+	dblClickEventFunc() {
+		this.setState({
+			dblClickClass:'dblclick-class'
+		});
+	}
+
+	mouseOverEventFunc() {
+		this.setState({
+			mouseOverEventClass:'mouseover-class'
+		});
+	}
+
+	onChange(event) {
+		this.setState({
+			inputVal:event.target.value
+		});
 	}
 
 	render () {
 		return <div>
-      <div id="clickEventDiv" onClick={this.props.clickEventFunc}>
+      <div id="clickEventDiv" className={this.state.clickClass} onClick={this.clickEventFunc}>
       </div>
-      <div id="dblClickEventDiv" onClick={this.props.dblClickEventFunc}>
+      <div id="dblClickEventDiv" className={this.state.dblClickClass} onDoubleClick={this.dblClickEventFunc}>
       </div>
-      <div id="selectEventDiv" onClick={this.props.selectEventFunc}>
+      <div id="mouseOverEventDiv" className={this.state.mouseOverEventClass} onMouseOver={this.mouseOverEventFunc}>
       </div>
-      <div id="mouseOverEventDiv" onClick={this.props.mouseOverEventFunc}>
-      </div>
-      <div id="changeEventDiv" onClick={this.props.changeEventFunc}>
-      </div>
+			<input id="inputElm" value={this.state.inputVal} onChange={this.onChange}></input>
     </div>;
 	}
 
 }
 
 EventComponent.propTypes = {
-   clickEventFunc:React.PropTypes.func,
-   dblClickEventFunc:React.PropTypes.func,
-   selectEventFunc:React.PropTypes.func,
-   mouseOverEventFunc:React.PropTypes.func,
-   changeEventFunc:React.PropTypes.func
+
 }
 
 EventComponent.defaultProps = {

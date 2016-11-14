@@ -1,11 +1,12 @@
 import React from 'react';
+import SubRoot from './sub-root'
 
 class Root extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      name: ''
+      name: 'sample name'
     };
   }
 
@@ -16,12 +17,12 @@ class Root extends React.Component {
 
         <p>
           Please input your name here:
-          <input
+          <input className="myInput"
             onChange={this.handleChange}
             value={this.state.name}
           />
         </p>
-
+        <SubRoot/>
         <p>Hello, {this.state.name} </p>
       </div>
     );
