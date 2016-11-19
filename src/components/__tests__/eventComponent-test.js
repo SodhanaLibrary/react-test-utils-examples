@@ -56,4 +56,13 @@ describe('event testing ::', () => {
     expect(instance.state.inputVal).toEqual("some value");
   });
 
+  it('keyDown event test', () => {
+    let instance = ReactTestUtils.renderIntoDocument(
+      <EventComponent/>
+    );
+    //enter key
+    let inputElm = scryRenderedDOMComponentsWithId(instance, "inputElm");
+    ReactTestUtils.Simulate.keyDown(inputElm[0], {keyCode : 13});
+  });
+
 });
