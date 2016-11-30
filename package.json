@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start",
-    "test-multi": "karma start --single-run=false"
+    "test-multi": "karma start --single-run=false",
+    "jest": "jest"
   },
   "author": "Justin Woo",
   "license": "MIT",
@@ -29,7 +30,8 @@
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "jest-cli": "^17.0.3"
   },
   "dependencies": {
     "classnames": "^2.2.5"
